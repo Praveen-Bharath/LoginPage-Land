@@ -4,12 +4,17 @@ import axios from 'axios';
   function Login(){
    
     function handleSubmit(){  
-      console.log("Logged successfully");
-      axios.post("http://localhost:5000/users",
-      {usermail:document.getElementById("usermail").value,
-      userpwd:document.getElementById("userpwd").value
+      //console.log("Logged successfully");
+
+      axios.post("http://localhost:5000/login",
+      {user_email:document.getElementById("user_email").value,
+      password:document.getElementById("password").value
       })
-      .then(resp=>{console.log(resp.data)
+      .then(resp=>{
+        alert("Logged in Successfully")
+        console.log("user account is detected",resp.data);
+       document.getElementById("user_email").value="";
+      document.getElementById("password").value="";
       })
       .catch(function (err){
         console.log(err)
@@ -22,10 +27,12 @@ import axios from 'axios';
             <div className="main">
             <div className="sub-main">
                 <div>
+                
                     <div> <b>Login</b> </div>
-                    <input type="text" id="usermail" name="email" placeholder="User Email" className="useremail" required />
-                    <input type="password" id="userpwd" name="pwd" placeholder="Password" className="password" required />
+                    <input type="email" id="user_email" name="user_email" placeholder="User Email"  required ></input>
+                    <input type="password" id="password" name="password" placeholder="Password" required ></input>
                     <button onClick={handleSubmit} type="submit" className="login-button" > Login </button>
+                    <div>If ur new user <a href="http://localhost:3000/signup">signup</a></div>
                 </div>
             </div>
             </div>

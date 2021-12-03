@@ -7,8 +7,8 @@
 }
 .header{
   display: flex;
-  
-  
+  text-align: center;
+  justify-content: center;
   margin-top: 50px;
   font-size: x-large;
 }
@@ -41,7 +41,7 @@
   width: 100px;
   border-radius: 120px ;
 }
-.useremail,.password{
+input{
   height:25px;
   width: 200px;
   padding: 5px;
