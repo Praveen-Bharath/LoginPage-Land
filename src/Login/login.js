@@ -3,9 +3,9 @@ import axios from 'axios';
 
   function Login(){
    
-    function handleSubmit(){  
+    function handleSubmit(e){  
       //console.log("Logged successfully");
-
+      e.preventDefault();
       axios.post("http://localhost:5000/login",
       {user_email:document.getElementById("user_email").value,
       password:document.getElementById("password").value
@@ -27,12 +27,13 @@ import axios from 'axios';
             <div className="main">
             <div className="sub-main">
                 <div>
-                
+                    <form onSubmit={handleSubmit}>
                     <div> <b>Login</b> </div>
                     <input type="email" id="user_email" name="user_email" placeholder="User Email"  required ></input>
                     <input type="password" id="password" name="password" placeholder="Password" required ></input>
-                    <button onClick={handleSubmit} type="submit" className="login-button" > Login </button>
+                    <button type="submit" className="login-button" > Login </button>
                     <div>If ur new user <a href="http://localhost:3000/signup">signup</a></div>
+          </form>
                 </div>
             </div>
             </div>
